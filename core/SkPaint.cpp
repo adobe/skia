@@ -2186,6 +2186,19 @@ bool SkPaint::nothingToDraw() const {
             case SkXfermode::kDstOver_Mode:
             case SkXfermode::kPlus_Mode:
                 return 0 == this->getAlpha();
+			case SkXfermode::kMultiply_Mode:
+			case SkXfermode::kScreen_Mode:
+			case SkXfermode::kOverlay_Mode:
+			case SkXfermode::kDarken_Mode:
+			case SkXfermode::kLighten_Mode:
+			case SkXfermode::kColorDodge_Mode:
+			case SkXfermode::kColorBurn_Mode:
+			case SkXfermode::kHardLight_Mode:
+			case SkXfermode::kSoftLight_Mode:
+			case SkXfermode::kDifference_Mode:
+			case SkXfermode::kExclusion_Mode:
+				return 0 == this->getAlpha();
+				break;
             case SkXfermode::kDst_Mode:
                 return true;
             default:
